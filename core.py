@@ -36,7 +36,7 @@ while enemy >0:
   dodge = random.randint(1, 2)
   block = int(attack * 0.5)
   magicBonus = random
-  magic = int(attack * random.uniform(0.3,0.6))
+  magic = int(attack * random.uniform(1.1,1.2))
   npcRandom = random.randint(1,3)
   npcChoise1 = 0
   npcChoise2 = 0
@@ -70,16 +70,22 @@ while enemy >0:
     print('opponent\'s move. Your hp: ' + str(hp))
   else:
      nextLevel -= 5
+     hp += random.randint(7,20)
+     print('Fight is over.You relax and restore hp')
+#level up changes
 if nextLevel == 0:
   level += 1
-print('You just level up! you received 2 stat points. Make your choise:')
-statChoise = int(input("agility - 1, hp - 2,strength/intellect - 3 "))
-if statChoise == 1 :
-  agility +=1
-elif statChoise == 2:
   hp += 5
-else:
-  if side == str('bio-robot'):
-    strength += 1
+  enemy += 10
+  nextLevel += 10
+  print('You just level up! you received 2 stat points. Make your choise:')
+  statChoise = int(input("agility - 1, hp - 2,strength/intellect - 3 "))
+  if statChoise == 1 :
+    agility +=1
+  elif statChoise == 2:
+    hp += 5
   else:
-    intellect += 1
+    if side == str('bio-robot'):
+      strength += 1
+    else:
+      intellect += 1
